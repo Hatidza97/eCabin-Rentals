@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-#nullable disable
-
-namespace eCabinRental.Database
+namespace eCabinRental.Model
 {
     public partial class KorisnikUloge
     {
@@ -11,7 +10,7 @@ namespace eCabinRental.Database
         public int KorisnikId { get; set; }
         public int UlogaId { get; set; }
 
-        public virtual Korisnik Korisnik { get; set; }
-        public virtual Uloga Uloga { get; set; }
+        //public virtual Korisnik Korisnik { get; set; }
+        //public virtual Uloga Uloga { get; set; }
     }
 }

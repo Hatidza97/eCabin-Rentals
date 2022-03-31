@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-#nullable disable
-
-namespace eCabinRental.Database
+namespace eCabinRental.Model
 {
     public partial class DetaljiRezervacije
     {
@@ -15,8 +14,8 @@ namespace eCabinRental.Database
         public DateTime? Datum { get; set; }
         public double? Cijena { get; set; }
 
-        public virtual Klijent Klijent { get; set; }
-        public virtual Objekat Objekat { get; set; }
-        public virtual Rezervacija Rezervacija { get; set; }
+        //public virtual Klijent Klijent { get; set; }
+        //public virtual Objekat Objekat { get; set; }
+        //public virtual Rezervacija Rezervacija { get; set; }
     }
 }

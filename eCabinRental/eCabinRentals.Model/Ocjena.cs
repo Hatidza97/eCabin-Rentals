@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-#nullable disable
-
-namespace eCabinRental.Database
+namespace eCabinRental.Model
 {
     public partial class Ocjena
     {
@@ -13,7 +12,7 @@ namespace eCabinRental.Database
         public int ObjekatId { get; set; }
         public int KlijentId { get; set; }
 
-        public virtual Klijent Klijent { get; set; }
-        public virtual Objekat Objekat { get; set; }
+        //public virtual Klijent Klijent { get; set; }
+        //public virtual Objekat Objekat { get; set; }
     }
 }

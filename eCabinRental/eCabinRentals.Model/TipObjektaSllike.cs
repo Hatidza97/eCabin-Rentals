@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-#nullable disable
-
-namespace eCabinRental.Database
+namespace eCabinRental.Model
 {
     public partial class TipObjektaSllike
     {
@@ -11,6 +10,6 @@ namespace eCabinRental.Database
         public byte[] ImageData { get; set; }
         public int ObjekatId { get; set; }
 
-        public virtual Objekat Objekat { get; set; }
+        //public virtual Objekat Objekat { get; set; }
     }
 }

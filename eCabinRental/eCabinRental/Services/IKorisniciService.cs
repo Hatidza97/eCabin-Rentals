@@ -7,6 +7,6 @@ namespace eCabinRental.Services
 {
     public interface IKorisniciService
     {
-        List<Korisnik> Get();
+        List<Model.Korisnik> Get();
     }
 }

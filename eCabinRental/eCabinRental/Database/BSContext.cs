@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace eCabinRental
+namespace eCabinRental.Database
 {
     public partial class BSContext : DbContext
     {

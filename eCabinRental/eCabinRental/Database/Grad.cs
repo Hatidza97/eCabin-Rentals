@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace eCabinRental
+namespace eCabinRental.Database
 {
     public partial class Grad
     {

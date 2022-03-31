@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
-#nullable disable
-
-namespace eCabinRental.Database
+namespace eCabinRental.Model
 {
     public partial class Rezervacija
     {
         public Rezervacija()
         {
-            DetaljiRezervacijes = new HashSet<DetaljiRezervacije>();
+           // DetaljiRezervacijes = new HashSet<DetaljiRezervacije>();
         }
 
         public int RezervacijaId { get; set; }
@@ -20,6 +19,6 @@ namespace eCabinRental.Database
         public int BrojDjece { get; set; }
         public int Otkazano { get; set; }
 
-        public virtual ICollection<DetaljiRezervacije> DetaljiRezervacijes { get; set; }
+        //public virtual ICollection<DetaljiRezervacije> DetaljiRezervacijes { get; set; }
     }
 }

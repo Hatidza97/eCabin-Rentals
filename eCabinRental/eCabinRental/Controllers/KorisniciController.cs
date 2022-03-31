@@ -15,9 +15,10 @@ namespace eCabinRental.Controllers
         public KorisniciController(IKorisniciService service)
         {
             _service = service;
+            
         }
         [HttpGet]
-        public IList<Korisnik> Get()
+        public IList<Model.Korisnik> Get()
         {
             return _service.Get();
         }
