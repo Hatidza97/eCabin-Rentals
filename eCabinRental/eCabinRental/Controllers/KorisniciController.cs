@@ -39,5 +39,11 @@ namespace eCabinRental.Controllers
         {
             return _service.Insert(request);
         }
+        [HttpPut("{id}")]
+        public ActionResult<Model.Korisnik> Update(int id, [FromBody] KorisniciUpdateRequest request)
+        {
+            return _service.Update(id, request);
+        }
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using AutoMapper;
 using eCabinRental.Database;
 using eCabinRental.Model.Request;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace eCabinRental.Services
 {
@@ -36,6 +38,7 @@ namespace eCabinRental.Services
             if (entity != null)
             {
                 context.Korisniks.Remove(entity);
+                context.SaveChanges();
                 return true;
             }
             return false;
@@ -73,6 +76,64 @@ namespace eCabinRental.Services
             return Convert.ToBase64String(inArray);
 
         }
-        
+        public List<Model.Korisnik> Get(KorisniciSearchRequest request)
+        {
+            var query = context.Korisniks.Include(x => x.Objekats)
+                .Include(x => x.KorisnikUloges)
+                .AsQueryable();
+            if (!string.IsNullOrWhiteSpace(request.Ime))
+            {
+                query = query.Where(x => x.Ime.StartsWith(request.Ime));
+            }
+            if (!string.IsNullOrWhiteSpace(request.Prezime))
+            {
+                query = query.Where(x => x.Prezime.StartsWith(request.Prezime));
+            }
+            if (!string.IsNullOrWhiteSpace(request.Telefon))
+            {
+                query = query.Where(x => x.Telefon.Contains(request.Telefon));
+            }
+            if (!string.IsNullOrWhiteSpace(request.Username))
+            {
+                query = query.Where(x => x.KorisnickoIme == request.Username);
+            }
+            if (!string.IsNullOrWhiteSpace(request.Email))
+            {
+                query = query.Where(x => x.Email.StartsWith(request.Email));
+            }
+
+            var list = query.ToList();
+            return _mapper.Map<List<Model.Korisnik>>(list);
+        }
+        public List<Model.Korisnik> GetRegistracija(KorisniciSearchRequest request)
+        {
+            var query = context.Korisniks.Include(x => x.Objekats)
+                .Include(x => x.KorisnikUloges)
+                .AsQueryable();
+
+            if (!string.IsNullOrWhiteSpace(request.Username))
+            {
+                query = query.Where(x => x.KorisnickoIme == request.Username);
+            }
+
+
+            var list = query.ToList();
+            return _mapper.Map<List<Model.Korisnik>>(list);
+        }
+        public Model.Korisnik Update(int id, KorisniciUpdateRequest request)
+        {
+            var entity = context.Korisniks.Find(id);
+
+            context.Korisniks.Attach(entity);
+            context.Korisniks.Update(entity);
+
+            _mapper.Map(request, entity);
+            context.SaveChanges();
+
+            return _mapper.Map<Model.Korisnik>(entity);
+        }
+       
+
+
     }
 }

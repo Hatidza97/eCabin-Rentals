@@ -1,5 +1,6 @@
 ﻿using eCabinRental.Database;
 using eCabinRental.Model.Request;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,14 @@ namespace eCabinRental.Services
         Model.Korisnik GetById(int id);
         bool Delete(int id);
         Model.Korisnik Insert(KorisniciInsertRequest request);
+        List<Model.Korisnik> Get(KorisniciSearchRequest request);
+        List<Model.Korisnik> GetRegistracija(KorisniciSearchRequest request);
+        Model.Korisnik Update(int id, KorisniciUpdateRequest request);
+        //Korisnik GetById(int id);
+        //Model.Korisnik Insert(KorisnikUpsert request);
+        //Data.Model.Korisnik Update(int id, KorisnikUpsert request);
+
+        //Task<Data.Model.Korisnik> Login(KorisnikLoginRequest request);
+        //ActionResult<Korisnik> SignUp(KorisnikUpsert request);
     }
 }

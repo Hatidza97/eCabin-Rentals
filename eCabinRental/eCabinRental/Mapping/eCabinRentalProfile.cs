@@ -14,7 +14,7 @@ namespace eCabinRental.Mapping
         {
             CreateMap<Database.Korisnik, Model.Korisnik>();
             CreateMap<Database.Korisnik,KorisniciInsertRequest>().ReverseMap();
-
+            CreateMap<Database.Korisnik, KorisniciUpdateRequest>().ReverseMap();
             CreateMap<Database.Klijent, Model.Klijent>();
             CreateMap<Database.Grad, Model.Grad>();
             CreateMap<Database.DetaljiRezervacije, Model.DetaljiRezervacije>();
