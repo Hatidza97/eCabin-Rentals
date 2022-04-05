@@ -21,7 +21,7 @@ namespace eCabinRental.Services
         //Model.Korisnik Insert(KorisnikUpsert request);
         //Data.Model.Korisnik Update(int id, KorisnikUpsert request);
 
-        //Task<Data.Model.Korisnik> Login(KorisnikLoginRequest request);
-        //ActionResult<Korisnik> SignUp(KorisnikUpsert request);
+        Task<Model.Korisnik> Login(KorisniciLoginRequest request);
+        ActionResult<Model.Korisnik> SignUp(KorisniciUpdateRequest request);
     }
 }

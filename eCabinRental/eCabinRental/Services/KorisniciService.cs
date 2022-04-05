@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using eCabinRental.Database;
+using eCabinRental.Filters;
 using eCabinRental.Model.Request;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -132,8 +133,41 @@ namespace eCabinRental.Services
 
             return _mapper.Map<Model.Korisnik>(entity);
         }
-       
 
+        public async Task<Model.Korisnik> Login(KorisniciLoginRequest request)
+        {
+            var korisnik = context.Korisniks.Include(x => x.KorisnikUloges).FirstOrDefault(x => x.KorisnickoIme == request.Username);
+
+            if (korisnik == null)
+            {
+                throw new UserException("Pogrešan username ili password");
+            }
+            var hash = GenerateHash(korisnik.LozinkaSalt, request.Password);
+            if (hash != korisnik.LozinkaHash)
+            {
+                throw new UserException("Pogrešan username ili password");
+
+            }
+            return _mapper.Map<Model.Korisnik>(korisnik);
+
+        }
+        public ActionResult<Model.Korisnik> SignUp(KorisniciUpdateRequest request)
+        {
+            var entity = _mapper.Map<Korisnik>(request);
+           //entity.ti = 2;
+
+            if (request.Password != request.ConfirmPassword)
+            {
+                throw new Exception("Password i potvrda passworda nisu iste");
+            }
+            entity.LozinkaSalt = GenerateSalt();
+            entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Password);
+            entity.KorisnickoIme = request.Username;
+            context.Korisniks.Add(entity);
+            context.SaveChanges();
+
+            return _mapper.Map<Model.Korisnik>(entity);
+        }
 
     }
 }

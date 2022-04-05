@@ -44,6 +44,11 @@ namespace eCabinRental.Controllers
         {
             return _service.Update(id, request);
         }
-
+        [HttpPost("signUp")]
+       // [AllowAnonymous]
+        public ActionResult<Model.Korisnik> SignUp(KorisniciUpdateRequest request)
+        {
+            return _service.SignUp(request);
+        }
     }
 }

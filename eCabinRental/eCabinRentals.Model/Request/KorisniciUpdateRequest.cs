@@ -21,6 +21,7 @@ namespace eCabinRental.Model.Request
         [Required(AllowEmptyStrings = false)]
         [MinLength(4)]
         public string Password { get; set; }
-
+        [MinLength(4)]
+        public string ConfirmPassword { get; set; }
     }
 }
