@@ -34,7 +34,6 @@ namespace eCabinRental.Services
                 _context.SaveChanges();
                 return _mapper.Map<TModel>(entity);
             }
-
             public void Delete(int id)
             {
                 var entity = _context.Set<TDatabase>().Find(id);

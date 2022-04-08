@@ -34,6 +34,11 @@ namespace eCabinRental
             services.AddDbContext<BSContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IKorisniciService, KorisniciService>();
+            services.AddScoped<IObjekatService, ObjekatService>();
+            services.AddScoped<IGradService, GradService>();
+            services.AddScoped<IOcjenaService, OcjenaService>();
+            services.AddScoped<ITipObjektumService, TipObjektumService>();
+            services.AddScoped<IDetaljiRezervacijeService, DetaljiRezervacijeService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
