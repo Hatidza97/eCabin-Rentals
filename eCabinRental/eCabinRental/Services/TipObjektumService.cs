@@ -19,22 +19,22 @@ namespace eCabinRental.Services
             _mapper = mapper;
             _context = context;
         }
-        public List<Model.TipObjektum> Get()
-        {
-            return _context.TipObjekta.ToList().Select(x => _mapper.Map<Model.TipObjektum>(x)).ToList();
-        }
+        //public List<Model.TipObjektum> Get()
+        //{
+        //    return _context.TipObjekta.ToList().Select(x => _mapper.Map<Model.TipObjektum>(x)).ToList();
+        //}
         public Model.TipObjektum GetById(int id)
         {
             var entity = _context.TipObjekta.Find(id);
             return _mapper.Map<Model.TipObjektum>(entity);
         }
-        public List<Model.TipObjektum> Get1(TipObjektumSearchRequest request)
+        public List<Model.TipObjektum> Get(TipObjektumSearchRequest search)
         {
-            var query = _context.TipObjekta.Include(x => x.TipObjektaId)
+            var query = _context.TipObjekta
                 .AsQueryable();
-            if (!string.IsNullOrWhiteSpace(request.Tip))
+            if (!string.IsNullOrWhiteSpace(search.Tip))
             {
-                query = query.Where(x => x.Tip.StartsWith(request.Tip));
+                query = query.Where(x => x.Tip.StartsWith(search.Tip));
             }
 
             var list = query.ToList();

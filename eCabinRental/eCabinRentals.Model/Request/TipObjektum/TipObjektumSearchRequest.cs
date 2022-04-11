@@ -6,7 +6,7 @@ namespace eCabinRental.Model.Request.TipObjektum
 {
     public class TipObjektumSearchRequest
     {
-        public int TipObjektaId { get; set; }
+      //  public int TipObjektaId { get; set; }
         public string Tip { get; set; }
 
     }

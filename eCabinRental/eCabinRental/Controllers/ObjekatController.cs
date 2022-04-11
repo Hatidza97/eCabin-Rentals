@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace eCabinRental.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class ObjekatController: ControllerBase
     {
         private readonly IObjekatService _service;
@@ -20,11 +20,11 @@ namespace eCabinRental.Controllers
         {
             _service = service;
         }
-        [HttpGet]
-        public IList<Model.Objekat> Get()
-        {
-            return _service.Get();
-        }
+        //[HttpGet]
+        //public IList<Model.Objekat> Get()
+        //{
+        //    return _service.Get();
+        //}
         [HttpGet("{id}")]
         public Model.Objekat GetByID(int id)
         {
@@ -44,6 +44,11 @@ namespace eCabinRental.Controllers
         public ActionResult<Model.Objekat> Insert(ObjekatInsertRequest request)
         {
             return _service.Insert(request);
+        }
+        [HttpGet]
+        public ActionResult<List<Model.Objekat>> Get([FromQuery] ObjekatSearchRequest search = null)
+        {
+            return _service.Get(search);
         }
     }
 }

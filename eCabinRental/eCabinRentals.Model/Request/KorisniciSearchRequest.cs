@@ -12,9 +12,9 @@ namespace eCabinRental.Model.Request
         public string Telefon { get; set; }
         public string Email { get; set; }
         public string Username { get; set; }
-        public int? TipKorisnikaId
-        {
-            get; set;
-        }
+        //public int? TipKorisnikaId
+        //{
+        //    get; set;
+        //}
     }
 }

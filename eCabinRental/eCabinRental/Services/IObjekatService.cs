@@ -11,7 +11,7 @@ namespace eCabinRental.Services
 {
     public interface IObjekatService
     {
-        List<Model.Objekat> Get();
+        //List<Model.Objekat> Get();
         Model.Objekat GetByID(int id);
         bool Delete(int id);
         List<Model.Objekat> Get(ObjekatSearchRequest request);

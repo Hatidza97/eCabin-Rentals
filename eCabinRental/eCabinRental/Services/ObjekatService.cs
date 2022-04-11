@@ -19,10 +19,10 @@ namespace eCabinRental.Services
             _context = context;
             _mapper = mapper;
         }
-        public List<Model.Objekat> Get()
-        {
-            return _context.Objekats.ToList().Select(x => _mapper.Map<Model.Objekat>(x)).ToList();
-        }
+        //public List<Model.Objekat> Get()
+        //{
+        //    return _context.Objekats.ToList().Select(x => _mapper.Map<Model.Objekat>(x)).ToList();
+        //}
 
         public Model.Objekat GetByID(int id)
         {
@@ -42,16 +42,16 @@ namespace eCabinRental.Services
         }
         public List<Model.Objekat> Get(ObjekatSearchRequest request)
         {
-            var query = _context.Objekats.Include(x => x.ObjekatId)
+            var query = _context.Objekats
                 .AsQueryable();
             if (!string.IsNullOrWhiteSpace(request.Naziv))
             {
                 query = query.Where(x => x.Naziv.StartsWith(request.Naziv));
             }
-            if (!string.IsNullOrWhiteSpace(request.Povrsina))
-            {
-                query = query.Where(x => x.Povrsina.StartsWith(request.Povrsina));
-            }
+            //if (!string.IsNullOrWhiteSpace(request.Cijena.ToString()))
+            //{
+            //    query = query.Where(x => x.Povrsina.StartsWith(request.Cijena.ToString()));
+            //}
            
             var list = query.ToList();
             return _mapper.Map<List<Model.Objekat>>(list);

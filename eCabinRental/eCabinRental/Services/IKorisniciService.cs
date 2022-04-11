@@ -10,7 +10,7 @@ namespace eCabinRental.Services
 {
     public interface IKorisniciService
     {
-        List<Model.Korisnik> Get();
+        //List<Model.Korisnik> Get();
         Model.Korisnik GetById(int id);
         bool Delete(int id);
         Model.Korisnik Insert(KorisniciInsertRequest request);

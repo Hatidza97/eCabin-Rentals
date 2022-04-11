@@ -8,6 +8,9 @@ using eCabinRental.Model.Request;
 using eCabinRental.Model.Request.Objekat;
 using eCabinRental.Model.Request.TipObjektum;
 using eCabinRental.Model.Request.DetaljiRezervacije;
+using eCabinRental.Model.Request.Klijent;
+using eCabinRental.Model.Request.Rezervacija;
+using eCabinRental.Model.Request.Uloga;
 
 namespace eCabinRental.Mapping
 {
@@ -21,9 +24,12 @@ namespace eCabinRental.Mapping
             CreateMap<Database.Korisnik, KorisniciSearchRequest>().ReverseMap();
          
             CreateMap<Database.Klijent, Model.Klijent>();
+            CreateMap<Database.Klijent, KlijentSearchRequest>().ReverseMap();
+            CreateMap<Database.Klijent, KlijentUpdateRequest>().ReverseMap();
+            CreateMap<Database.Klijent, KlijentInsertRequest>().ReverseMap();
             CreateMap<Database.Grad, Model.Grad>();
-            CreateMap<Database.DetaljiRezervacije, Model.DetaljiRezervacije>();
-            CreateMap<Database.DetaljiRezervacije, DetaljiRezervacijeUpdateRequest>();
+            CreateMap<Database.DetaljiRezervacije, Model.DetaljiRezervacije>().ReverseMap();
+            CreateMap<Database.DetaljiRezervacije, DetaljiRezervacijeUpdateRequest>().ReverseMap();
             CreateMap<Database.KorisnikUloge, Model.KorisnikUloge>();
             CreateMap<Database.Objekat, Model.Objekat>();
             CreateMap<Database.Objekat, ObjekatInsertRequest>().ReverseMap();
@@ -31,11 +37,15 @@ namespace eCabinRental.Mapping
             CreateMap<Database.Objekat, ObjekatUpdateRequest>().ReverseMap();
             CreateMap<Database.Ocjena, Model.Ocjena>();
             CreateMap<Database.Rezervacija, Model.Rezervacija>();
+            CreateMap<Database.Rezervacija, RezervacijaSearchRequest>().ReverseMap();
+            CreateMap<Database.Rezervacija, RezervacijaInsertRequest>().ReverseMap();
+            CreateMap<Database.Rezervacija, RezervacijaUpdateRequest>().ReverseMap();
             CreateMap<Database.TipObjektaSllike, Model.TipObjektaSllike>();
             CreateMap<Database.TipObjektum, Model.TipObjektum>();
             CreateMap<Database.TipObjektum, TipObjektumSearchRequest>().ReverseMap();
             CreateMap<Database.Uloga, Model.Uloga>();
-
+            CreateMap<Database.Uloga, UlogaSearchRequest>().ReverseMap();
+            CreateMap<Database.Uloga, UlogaUpdateRequest>().ReverseMap();
         }
     }
 }

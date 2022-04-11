@@ -16,7 +16,7 @@ namespace eCabinRental.Controllers
             _service = service;
         }
         [HttpGet]
-        public IList<Model.DetaljiRezervacije> Get()
+        public List<Model.DetaljiRezervacije> Get()
         {
             return _service.Get();
         }
@@ -26,9 +26,10 @@ namespace eCabinRental.Controllers
             return _service.GetById(id);
         }
         [HttpPut("{id}")]
-        public List<Model.DetaljiRezervacije> Update(int id, [FromBody] DetaljiRezervacijeUpdateRequest request)
+        public Model.DetaljiRezervacije Update(int id, [FromBody] DetaljiRezervacijeUpdateRequest request)
         {
             return _service.Update(id, request);
         }
+       
     }
 }

@@ -12,7 +12,8 @@ namespace eCabinRental.Services
     {
         List<Model.DetaljiRezervacije> Get();
         Model.DetaljiRezervacije GetById(int id);
-        List<Model.DetaljiRezervacije> Update(int id, DetaljiRezervacijeUpdateRequest request);
+        Model.DetaljiRezervacije Update(int id, DetaljiRezervacijeUpdateRequest request);
+        //List<Model.DetaljiRezervacije> Update(int id, DetaljiRezervacijeUpdateRequest request);
         //Model.Korisnik Update(int id, DetaljiRezervacijeUpdateRequest request);
         //Model.Korisnik Update(int id, DetaljiRezervacijeUpdateRequest request);
 

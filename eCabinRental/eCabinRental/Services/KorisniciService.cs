@@ -23,11 +23,11 @@ namespace eCabinRental.Services
             context = Context;
             _mapper = mapper;
         }
-        public List<Model.Korisnik> Get()
-        {
-            return context.Korisniks.ToList().Select(x=>_mapper.Map<Model.Korisnik>(x)).ToList();
+        //public List<Model.Korisnik> Get()
+        //{
+        //    return context.Korisniks.ToList().Select(x=>_mapper.Map<Model.Korisnik>(x)).ToList();
 
-        }
+        //}
         public Model.Korisnik GetById(int id)
         {
             var entity = context.Korisniks.Find(id);
@@ -133,6 +133,7 @@ namespace eCabinRental.Services
 
             return _mapper.Map<Model.Korisnik>(entity);
         }
+
 
         public async Task<Model.Korisnik> Login(KorisniciLoginRequest request)
         {

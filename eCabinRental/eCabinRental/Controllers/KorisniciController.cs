@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 namespace eCabinRental.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
+
     public class KorisniciController:ControllerBase
     {
         private readonly IKorisniciService _service;
@@ -19,11 +20,11 @@ namespace eCabinRental.Controllers
             _service = service;
             
         }
-        [HttpGet]
-        public IList<Model.Korisnik> Get()
-        {
-            return _service.Get();
-        }
+        //[HttpGet]
+        //public IList<Model.Korisnik> Get()
+        //{
+        //    return _service.Get();
+        //}
         [HttpGet("{id}")]
         public Korisnik GetById(int id)
         {
@@ -33,6 +34,11 @@ namespace eCabinRental.Controllers
         public ActionResult<bool>Delete(int id)
         {
             return _service.Delete(id);
+        }
+        [HttpGet]
+        public ActionResult<List<Model.Korisnik>> Get([FromQuery] KorisniciSearchRequest search = null)
+        {
+            return _service.Get(search);
         }
         [HttpPost]
         public ActionResult<Model.Korisnik> Insert(KorisniciInsertRequest request)
@@ -45,7 +51,6 @@ namespace eCabinRental.Controllers
             return _service.Update(id, request);
         }
         [HttpPost("signUp")]
-       // [AllowAnonymous]
         public ActionResult<Model.Korisnik> SignUp(KorisniciUpdateRequest request)
         {
             return _service.SignUp(request);

@@ -18,21 +18,20 @@ namespace eCabinRental.Controllers
         {
             _service = service;
         }
-        [HttpGet]
-        public IList<Model.TipObjektum> Get()
-        {
-            return _service.Get();
-        }
+       // [HttpGet]
+        //public IList<Model.TipObjektum> Get()
+        //{
+        //    return _service.Get();
+        //}
         [HttpGet("{id}")]
         public Model.TipObjektum GetById(int id)
         {
             return _service.GetById(id);
         }
-        //[HttpGet]
-        //[HttpGet(Name = nameof(Get1))]
-        //public ActionResult<List<Model.TipObjektum>> Get1([FromQuery] TipObjektumSearchRequest request)
-        //{
-        //    return _service.Get1(request);
-        //}
+        [HttpGet]
+        public ActionResult<List<Model.TipObjektum>> Get([FromQuery] TipObjektumSearchRequest search=null)
+        {
+            return _service.Get(search);
+        }
     }
 }

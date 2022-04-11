@@ -8,9 +8,9 @@ namespace eCabinRental.Services
 {
     public interface ITipObjektumService
     {
-        List<Model.TipObjektum> Get();
+        //List<Model.TipObjektum> Get();
         Model.TipObjektum GetById(int id);
-        List<Model.TipObjektum> Get1(TipObjektumSearchRequest request);
+        List<Model.TipObjektum> Get(TipObjektumSearchRequest search);
 
 
     }

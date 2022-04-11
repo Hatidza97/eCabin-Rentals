@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using RouteAttribute = Microsoft.AspNetCore.Mvc.RouteAttribute;
 namespace eCabinRental.Controllers
 {
-      [Route("api/[controller]")]
+        [Route("api/[controller]")]
         [ApiController]
         public class BaseController<TModel, Tsearch> : Controller where Tsearch : class
         {

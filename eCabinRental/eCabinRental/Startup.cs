@@ -39,6 +39,9 @@ namespace eCabinRental
             services.AddScoped<IOcjenaService, OcjenaService>();
             services.AddScoped<ITipObjektumService, TipObjektumService>();
             services.AddScoped<IDetaljiRezervacijeService, DetaljiRezervacijeService>();
+            services.AddScoped<IKlijentService, KlijentService>();
+            services.AddScoped<IRezervacijaService, RezervacijaService>();
+            services.AddScoped<IUlogaService, UlogaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
