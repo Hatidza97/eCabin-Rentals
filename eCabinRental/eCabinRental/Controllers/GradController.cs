@@ -1,4 +1,5 @@
 ﻿using eCabinRental.Model;
+using eCabinRental.Model.Request.Grad;
 using eCabinRental.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,25 +10,12 @@ using System.Threading.Tasks;
 namespace eCabinRental.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
-    public class GradController: ControllerBase
+    [Route("api/[controller]")]
+    public class GradController : BaseController<Model.Grad, Model.Request.Grad.GradSearchRequest>
     {
-        private readonly IGradService _service;
-        public GradController(IGradService service)
+        public GradController(IService<Grad, GradSearchRequest> service) : base(service)
         {
-            _service = service;
 
         }
-        [HttpGet]
-        public IList<Model.Grad> Get()
-        {
-            return _service.Get();
-        }
-        [HttpGet("{id}")]
-        public Model.Grad GetById(int id)
-        {
-            return _service.GetById(id);
-        }
-
     }
 }

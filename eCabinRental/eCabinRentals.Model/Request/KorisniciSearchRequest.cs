@@ -6,7 +6,7 @@ namespace eCabinRental.Model.Request
 {
     public class KorisniciSearchRequest
     {
-
+        public int KorisnikID { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
         public string Telefon { get; set; }

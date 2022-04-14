@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using eCabinRental.Database;
+using eCabinRental.Model.Request.Grad;
 using eCabinRental.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,7 +36,8 @@ namespace eCabinRental
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IKorisniciService, KorisniciService>();
             services.AddScoped<IObjekatService, ObjekatService>();
-            services.AddScoped<IGradService, GradService>();
+            //services.AddScoped<IGradService, GradService>();
+            services.AddScoped<IService<Model.Grad, GradSearchRequest>, GradService>();
             services.AddScoped<IOcjenaService, OcjenaService>();
             services.AddScoped<ITipObjektumService, TipObjektumService>();
             services.AddScoped<IDetaljiRezervacijeService, DetaljiRezervacijeService>();

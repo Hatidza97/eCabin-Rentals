@@ -83,7 +83,7 @@ namespace eCabinRental.Services
             entity.Email = request.Email;
             entity.KorisnickoIme = request.KorisnickoIme;
             entity.Email = request.Email;
-            entity.GradId = request.GradId;
+            entity.GradId = (int)request.GradId;
             var grad = context.Grads.Find(request.GradId);
             //entity.Grad.Naziv = grad.Naziv;
             entity.Telefon = request.Telefon;

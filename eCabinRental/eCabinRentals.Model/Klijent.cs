@@ -20,8 +20,10 @@ namespace eCabinRental.Model
         public string KorisnickoIme { get; set; }
         public byte[] Slika { get; set; }
         public int GradId { get; set; }
-
-        //public virtual Grad Grad { get; set; }
+        public string Lozinka { get; set; }
+        public string LozinkaHash { get; set; }
+        public string LozinkaSalt { get; set; }
+        public Grad Grad { get; set; }
         //public virtual ICollection<DetaljiRezervacije> DetaljiRezervacijes { get; set; }
         //public virtual ICollection<Ocjena> Ocjenas { get; set; }
     }
